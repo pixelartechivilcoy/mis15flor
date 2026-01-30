@@ -1,0 +1,168 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables de color */
+:root {
+  --bg-color: #FAF8F4;
+  --text-color: #8A7556;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: 'Bellania Love';
+  src: url('Bellenia Love.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kaiven Sans';
+  src: url('Kaiven Regular Rounded.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kaiven Sans';
+  src: url('Kaiven Bold Rounded.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* Contenedor principal */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+/* Título principal */
+.title {
+  font-family: 'Bellania Love', cursive;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  letter-spacing: 0px;
+  font-weight: normal;
+}
+
+/* Subtítulo */
+.subtitle{
+  font-family: 'Kaiven Sans', sans-serif;
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+
+/* Botón */
+.enter-btn{
+  background-color: transparent;
+  border: 1px solid #CBB58B;
+  color: #8A7556;
+
+  padding: 0.7rem 2.4rem;
+  border-radius: 999px;
+
+  font-family: 'Kaiven Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.enter-btn:hover{
+  background-color: #CBB58B;
+  color: #FAF8F4;
+
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.enter-btn:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.enter-btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(203,181,139,0.35);
+}
+
+
+/* Responsive extra para pantallas muy chicas */
+@media (max-width: 360px) {
+  .hero {
+    gap: 1.2rem;
+  }
+}
+
+@keyframes subirSuave {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  letter-spacing: -0.5px;
+  font-family: 'Bellania Love', cursive;
+  opacity: 0;
+  animation: subirSuave 1.2s ease-out forwards;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  line-height: 1.4;
+  max-width: 600px;
+  letter-spacing: 0.5px;
+  font-family: 'Kaiven Sans', sans-serif;
+  opacity: 0;
+  animation: subirSuave 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.enter-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  font-family: 'Kaiven Sans', sans-serif;
+  letter-spacing: 1px;
+  color: var(--bg-color);
+  background-color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  animation: subirSuave 1.2s ease-out forwards;
+  animation-delay: 0.6s;
+}
